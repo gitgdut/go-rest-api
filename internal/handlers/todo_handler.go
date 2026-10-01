@@ -1,4 +1,4 @@
-package handlers
+﻿package handlers
 
 import (
 	"fmt"
@@ -38,7 +38,7 @@ func CreateTodoHandler(pool *pgxpool.Pool) gin.HandlerFunc {
 			return
 		}
 
-		todo, err := repository.CreatedTodo(pool, input.Title, input.Completed, userID)
+		todo, err := repository.CreateTodo(pool, input.Title, input.Completed, userID)
 
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -202,6 +202,7 @@ func DeleteToDoHandler(pool *pgxpool.Pool) gin.HandlerFunc {
 			return
 		}
 
-		c.JSON(http.StatusOK, gin.H{"message": "Todo delete successfully"})
+		c.JSON(http.StatusOK, gin.H{"message": "Todo deleted successfully"})
 	}
 }
+
