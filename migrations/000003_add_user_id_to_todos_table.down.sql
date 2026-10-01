@@ -1,0 +1,3 @@
+ALTER TABLE todos DROP CONSTRAINT IF EXISTS fk_todos_user;
+
+ALTER TABLE todos DROP COLUMN IF EXISTS user_id;
