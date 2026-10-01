@@ -1,4 +1,4 @@
-package handlers
+﻿package handlers
 
 import (
 	"go-api-rest/internal/config"
@@ -28,7 +28,7 @@ type LoginResponse struct {
 	Token string `json:"token" binding:"required"`
 }
 
-func CreateUserHnadler(pool *pgxpool.Pool) gin.HandlerFunc {
+func CreateUserHandler(pool *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var registerRequest RegisterRequest
 
@@ -131,3 +131,4 @@ func TestProtectedHandler() gin.HandlerFunc {
 
 	}
 }
+

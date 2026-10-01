@@ -1,4 +1,4 @@
-package main
+﻿package main
 
 import (
 	"go-api-rest/internal/config"
@@ -41,7 +41,7 @@ func main() {
 		})
 	})
 
-	router.POST("/auth/register", handlers.CreateUserHnadler(pool))
+	router.POST("/auth/register", handlers.CreateUserHandler(pool))
 	router.POST("/auth/login", handlers.LoginHandler(pool, cfg))
 
 	protected := router.Group("/todos")
@@ -59,3 +59,4 @@ func main() {
 	router.Run(":" + cfg.Port)
 
 }
+

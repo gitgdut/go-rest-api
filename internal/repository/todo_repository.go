@@ -1,4 +1,4 @@
-package repository
+﻿package repository
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 	"github.com/jackc/pgx/v4/pgxpool"
 )
 
-func CreatedTodo(pool *pgxpool.Pool, title string, completed bool, userID string) (*models.Todo, error) {
+func CreateTodo(pool *pgxpool.Pool, title string, completed bool, userID string) (*models.Todo, error) {
 	var ctx context.Context
 	var cancel context.CancelFunc
 	ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
@@ -157,7 +157,7 @@ func DeleteToDo(pool *pgxpool.Pool, id int, userID string) error {
 
 	var query string = `
 		DELETE FROM TODOS
-		WHERE id=$1 AND uer_id=$2
+		WHERE id=$1 AND user_id=$2
 	`
 
 	commandTag, err := pool.Exec(ctx, query, id, userID)
@@ -173,3 +173,4 @@ func DeleteToDo(pool *pgxpool.Pool, id int, userID string) error {
 	return nil
 
 }
+
